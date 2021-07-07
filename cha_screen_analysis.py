@@ -176,7 +176,6 @@ class ChaSummary(object):
 
     def remove_dissimilar_frames(self, errs):
         similars = []
-        pdb.set_trace()
         for frame in errs:
             if frame[1] < self.mse_threshold:
                 similars.append(frame[0])
@@ -322,6 +321,8 @@ def main(args):
                 cs.time_per_frame()
                 cs.create_table()
                 cs.frame_grid()
+                
+                pdb.set_trace()
 
                 g = NetworkGraph(cs)
                 g.visualize('spring')

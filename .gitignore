@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Directories
+data/
+
 # C extensions
 *.so
 
@@ -112,3 +115,13 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+jason_helen.csv
+originals/002.mp4
+originals/002.txt
+originals/003.mp4
+originals/003.txt
+originals/004.mp4
+originals/004.txt
+originals/005.mp4
+originals/005.txt
+heath_helen.csv
