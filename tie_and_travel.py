@@ -13,8 +13,6 @@ COLORS = {}
 # FUNCTIONS
 def tie_plot(*csvs):
     for index, csv_name in enumerate(csvs):
-        if index == 4:
-            continue
         times = pd.read_csv(csv_name)
         times.loc[:, 'end'] = times['end'].apply(lambda x: x - times['start'].min())
         times = times.sort_values(by='end', ascending=False)
@@ -27,7 +25,8 @@ def tie_plot(*csvs):
             scr = str(screen)
             if scr not in COLORS:
                 COLORS[scr] = '#%02X%02X%02X' % (r(),r(),r())
-
+        if index == 4:
+            continue
         for i, row in times.iterrows():
             screen = str(int(row.Screen))
             if screen not in LEGEND:
@@ -113,7 +112,7 @@ for i in range(8):
 
 
 tie_plot(*csvs)
-# travel_graph(*csvs)
+travel_graph(*csvs)
 
 # for index, csv in enumerate(csvs):
 #     travel_graph(csv, index*3, ax, 'spring')
