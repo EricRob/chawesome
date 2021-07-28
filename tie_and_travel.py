@@ -108,7 +108,7 @@ def travel_graph(*csvs):
 # file handler
 csvs = []
 for i in range(8):
-    csvs.append(os.path.join('data', 'csvs', f'helen_{i + 1}.csv'))
+    csvs.append(os.path.join('csvs', f'helen_{i + 1}.csv'))
 
 
 tie_plot(*csvs)
