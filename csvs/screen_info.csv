@@ -1,0 +1,190 @@
+﻿ID,NAME,MACRO
+16,24 Hour Labs,Patient Summary / Snapshot
+107,8CSI Rounding,Patient Summary / Snapshot
+126,Abx,Patient Summary / Snapshot
+105,Anticoag Accordion,Patient Summary / Snapshot
+111,CST (Patient Scoring),Patient Summary / Snapshot
+17,Culture Results,Patient Summary / Snapshot
+96,Current Meds,Patient Summary / Snapshot
+118,Drg Thrpy,Patient Summary / Snapshot
+104,Fever,Patient Summary / Snapshot
+31,Glucose,Patient Summary / Snapshot
+78,Hemodialysis,Patient Summary / Snapshot
+127,Hemodynamics Accordion,Patient Summary / Snapshot
+2,ICU Accordion,Patient Summary / Snapshot
+115,i-Vents,Patient Summary / Snapshot
+82,Kardex,Patient Summary / Snapshot
+69,Labs,Patient Summary / Snapshot
+103,Labs in Process,Patient Summary / Snapshot
+25,Lines drain airwazys,Patient Summary / Snapshot
+9,MAR,Patient Summary / Snapshot
+79,MAR-Sorted,Patient Summary / Snapshot
+24,MD Index,Patient Summary / Snapshot
+18,OHSU Snapshot,Patient Summary / Snapshot
+130,Onc,Patient Summary / Snapshot
+68,Order Hx,Patient Summary / Snapshot
+22,Order Review,Patient Summary / Snapshot
+39,Pain,Patient Summary / Snapshot
+97,Patient Overview,Patient Summary / Snapshot
+131,Patient Summary: Profile,Patient Summary / Snapshot
+109,Pulmonary Accordion,Patient Summary / Snapshot
+37,Recent Results,Patient Summary / Snapshot
+70,Respiratory Data,Patient Summary / Snapshot
+106,Rounding Widgets,Patient Summary / Snapshot
+112,Rx Flow,Patient Summary / Snapshot
+110,Rx Sum,Patient Summary / Snapshot
+144,Safe Care of the Vulnerable Patient Widget,Patient Summary / Snapshot
+46,Transfusion,Patient Summary / Snapshot
+119,Transplant Snapshots,Patient Summary / Snapshot
+7,Vitals graph,Patient Summary / Snapshot
+3,Vitals-24hrs,Patient Summary / Snapshot
+152,ED Encounter Summary ,Patient Summary / Snapshot
+156,1  Week Labs,Patient Summary / Snapshot
+157,RN Handoff,Patient Summary / Snapshot
+158,Patient Summary: Case Management,Patient Summary / Snapshot
+170,Patient Summary: Medication Administration,Patient Summary / Snapshot
+201,ICU Accordion: Cardiac,ICU Accordion
+202,ICU Accordion: Pulmonary,ICU Accordion
+203,ICU Accordion: Renal,ICU Accordion
+204,ICU Accordion: GI,ICU Accordion
+205,ICU Accordion: Endo/Nutri,ICU Accordion
+206,ICU Accordion: Heme,ICU Accordion
+207,ICU Accordion: ID,ICU Accordion
+208,ICU Accordion: Neuro,ICU Accordion
+209,ICU Accordion: Glucose,ICU Accordion
+210,ICU Accordion: Sepsis,ICU Accordion
+211,ICU Accordion: Temp Management,ICU Accordion
+212,ICU Accordion: Pain/Sedation,ICU Accordion
+220,Anti-Infective Management,Patient Summary / Snapshot
+221,Patient Summary: Electrolytes/Diuretics,Patient Summary / Snapshot
+222,Patient Summary: CRRT,Patient Summary / Snapshot
+223,Patient Summary: CST Monitored Medications,Patient Summary / Snapshot
+224,Patient Summary: Medications Report,Patient Summary / Snapshot
+13,Chart Review: Cards,Chart Review
+5,Chart Review: Encounters,Chart Review
+66,Chart Review: Episodes,Chart Review
+14,Chart Review: Imaging,Chart Review
+4,Chart Review: Lab,Chart Review
+64,Chart Review: Letters,Chart Review
+62,Chart Review: Media,Chart Review
+63,Chart Review: Meds,Chart Review
+84,Chart Review: Micro,Chart Review
+58,Chart Review: Misc Reports ,Chart Review
+28,Chart Review: Notes,Chart Review
+29,Chart Review: Other orders,Chart Review
+83,Chart Review: Path,Chart Review
+40,Chart Review: Proc,Chart Review
+41,Chart Review: Proc Note,Chart Review
+61,Chart Review: Pulm,Chart Review
+65,Chart Review: Referral,Chart Review
+26,Orders: Manager-Orders,Order
+8,Orders: Orders Manager,Order
+71,DOC Flowsheet: Annual Substance Use,Flowsheet
+100,DOC Flowsheet: Cardio,Flowsheet
+15,DOC Flowsheet: Creation of Graph,Flowsheet
+73,DOC Flowsheet: GAD,Flowsheet
+85,DOC Flowsheet: I/O,Flowsheet
+135,Doc Flowsheet: ICU Adult Assessment,Flowsheet
+36,DOC Flowsheet: ICU Vitals,Flowsheet
+44,DOC Flowsheet: MMSE,Flowsheet
+141,Doc Flowsheet: Non Behavioral Restraint,Flowsheet
+60,DOC Flowsheet: Pulm Flowsheet,Flowsheet
+45,DOC Flowsheet: Ventilator,Flowsheet
+74,DOC Flowsheet: Vital Signs,Flowsheet
+72,DOC Flowsheet: Vitals,Flowsheet
+43,DOC Flowsheet:Pain Scale,Flowsheet
+150,Doc Flowsheets: Sedation Hold and SBT,Flowsheet
+165,DOC Flow Sheet: Brief Pain ,Flowsheet
+113,Medications: Current,Medications
+132,Medications: History,Medications
+114,Medications: Prior to Admission,Medications
+139,Medications: Encounter,Medications
+10,Notes: All Notes,Notes
+86,Notes: Anes,Notes
+154,Notes: Care Plan,Notes
+28,Notes: Chart Review,Notes
+56,Notes: Consults,Notes
+88,Notes: Discharge Summary,Notes
+57,Notes: H&P,Notes
+55,Notes: Incomplete,Notes
+41,Notes: Procedures,Notes
+67,Notes: Progress Note,Notes
+87,Notes: Transfer,Notes
+161,Notes: Media,Notes
+162,Notes: ED,Notes
+163,Notes: Significant Event,Notes
+164,Notes-Video Consult,Notes
+ID,Activity Screens ,
+80,Admission Navigator,Activity Screen
+89,Admission Navigator: 24 Hr Vitals,Activity Screen
+92,Admission Navigator: Med Comment History,Activity Screen
+120,Admission Navigator: Order Reconciliation,Activity Screen
+93,Admission Navigator: Pended/Held Orders,Activity Screen
+90,Admission Navigator: Problem List,Activity Screen
+81,Admission Navigator: Review PTA Meds,Activity Screen
+35,Allergies,Activity Screen
+143,Blood Admin,Activity Screen
+142,Care Plan,Activity Screen
+155,Demographics,Activity Screen
+137,Flowsheets,Flowsheet
+138,Flowsheets: Flowsheet Report,Flowsheet
+102,Graphs,Activity Screen
+48,Growth Chart,Activity Screen
+32,History,Activity Screen
+6,I/O ,Activity Screen
+75,I/O Graph,Activity Screen
+117,Lexi-Comp Website,Activity Screen
+94,Manage Orders: Active,Order
+23,MAR,Medications
+128,MAR: Continuous,Medications
+121,MAR: Due/Overdue,Medications
+129,MAR: PRN,Medications
+136,MAR: Scheduled,Medications
+59,Meds List,Medications
+77,More Activities,Activity Screen
+133,Order Entry,Order
+124,Patient Education: Assessment,Activity Screen
+125,Patient Education: Unresolved Education,Activity Screen
+33,PCP team,Activity Screen
+27,Problem list,Activity Screen
+38,PULM MD Signout,Activity Screen
+30,Rounding,Activity Screen
+18,Snapshot,Patient Summary / Snapshot
+76,Surgical Orders Navigator,Order
+12,Synopsis,Patient Summary / Snapshot
+122,Transfer,Activity Screen
+123,Transfer of Knowledge,Activity Screen
+134,Verify New Orders,Order
+159,Activity: Patient Chart Advisories,Activity Screen
+160,Manage Orders: Order History,Order
+169,Activity: Request Outside Records,Activity Screen
+49,Results Review: Blood Glucose,Results Review
+52,Results Review: CBC Test,Results Review
+19,Results Review: Chemistry,Results Review
+146,"Results Review: Chemistry- Routine Chemistry: Calcium, Plasma (Lab)",Results Review
+147,"Results Review: Chemistry- Routine Chemistry: Chloride, Plasma (Lab)",Results Review
+140,Results Review: Chemistry- Routine Chemistry: Creatinine Plasma,Results Review
+167,Results Review: Chemistry- Routine Chemistry: EFGR non African American,Results Review
+168,Results Review: Chemistry- Routine Chemistry: EFGR African American,Results Review
+166,"Results Review: Chemistry- Routine Chemistry: Glucose, Plasma (Lab)",Results Review
+145,Results Review: Chemistry- Routine Chemistry: Lactic Acid,Results Review
+148,"Results Review: Chemistry- Routine Chemistry: Potassium, Plasma (Lab)",Results Review
+149,"Results Review: Chemistry- Routine Chemistry: Sodium, Plasma (Lab)",Results Review
+153,"Results Review: Chemistry- Routine Chemistry: BUN, Plasma (Lab)",Results Review
+50,Results Review: Chemistry-Blood Gas,Results Review
+91,Results Review: Chemistry-Routine Chemistry,Results Review
+53,Results Review: Coagulation Test,Results Review
+11,Results Review: Creation of Graph,Results Review
+21,Results Review: Creation of table/Flowsheet ,Results Review
+108,Results Review: CSF and Body Fluids Analysis,Results Review
+98,Results Review: Endocrinology,Results Review
+20,Results Review: Hematology,Results Review
+151,Results Review: Hematology: Routine Hematology: CBC: RDW SD,Results Review
+54,Results Review: Hematology Misc,Results Review
+101,Results Review: Microbiology/Infectious Disease,Results Review
+95,Results Review: Options,Results Review
+99,Results Review: Other,Results Review
+42,Results Review: POC Lactate,Results Review
+1,Results Review: Results Review,Results Review
+51,Results Review: Therapeutic Drug Monitoring,Results Review
+47,Results Review: Urinalysis,Results Review
