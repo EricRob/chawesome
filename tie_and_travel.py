@@ -57,32 +57,21 @@ def tie_plot(*csvs):
 
         height = 0.3
 
-        # screens = times.Screen.unique()
-        # r = lambda: random.randint(0,255)
-        # for screen in screens:
-        #     scr = str(screen)
-        #     if scr not in COLORS:
-        #         COLORS[scr] = '#%02X%02X%02X' % (r(),r(),r())
-        if index == 4:
-            continue
         for i, row in times.iterrows():
             screen = str(int(row.Screen))
-            # if screen not in LEGEND:
-            #     plt.barh(index, row.end, color=SCREEN_TO_COLOR[screen], label=screen, height=height)
-            # else:
             plt.barh(index, row.end, color=SCREEN_TO_COLOR[screen], height=height)
 
-    for category in COLORS:
-        for screen in COLORS[category]:
-            LEGEND.append(plt.Line2D([0], [0], color=SCREEN_TO_COLOR[str(screen)], lw=3, label=str(screen)))
+    # for category in COLORS:
+    #     for screen in COLORS[category]:
+    #         LEGEND.append(plt.Line2D([0], [0], color=SCREEN_TO_COLOR[str(screen)], lw=3, label=str(screen)))
 
     plt.plot()
     plt.xlabel("Elapsed time")
     plt.ylabel("Subject")
     plt.title("Helen Screen switches")
     plt.savefig(os.path.join('data', 'tie_plot.png'))
-    plt.legend(handles=LEGEND, loc='center', fancybox=True, shadow=True, ncol=3)
-    plt.savefig(os.path.join('data', 'legend.png'))
+    # plt.legend(handles=LEGEND, loc='center', fancybox=True, shadow=True, ncol=3)
+    # plt.savefig(os.path.join('data', 'legend.png'))
     plt.clf()
 
 def travel_graph(*csvs):
@@ -109,25 +98,12 @@ def travel_graph(*csvs):
                 edges[label].append((a, b))
             a = b
 
-        
-        # G.add_edges_from(edges)
     color_arr = []
     for node in G.nodes():
         color_arr.append(SCREEN_TO_COLOR[str(node)])
 
     pos = nx.circular_layout(G)
-    # if gtype == 'spring':
-    #     pos = nx.spring_layout(G)
-    # elif gtype == 'circular':
-    #     pos = nx.circular_layout(G)
-    # elif gtype == 'planar':
-    #     try:
-    #         pos = nx.planar_layout(G)
-    #     except:
-    #         return
 
-    # 
-    # plt.sca(axis)
     r = lambda: random.randint(0,255)
     
     for index, edge in enumerate(edges):
@@ -137,7 +113,7 @@ def travel_graph(*csvs):
         color = '#%02X%02X%02X' % (r(),r(),r())
         color = '#181818'
         nx.draw_networkx_edges(G, pos, ax=axis, edgelist=edges[edge], edge_color=color, arrows=True)
-        nx.draw_networkx_nodes(G, pos, ax=axis, node_color=color_arr, node_size=100)
+        nx.draw_networkx_nodes(G, pos, ax=axis, node_color=color_arr, node_size=50)
         # nx.draw_networkx_labels(G, pos, ax=axis, )
         plt.title(edge)
     graph_legend = []
