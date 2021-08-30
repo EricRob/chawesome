@@ -69,19 +69,13 @@ def tie_plot(*csvs, name):
             if isnan(row.Screen):
                 continue
             screen = str(int(row.Screen))
-            plt.barh(index, row.end, color=SCREEN_TO_COLOR[screen], height=height)
-
-    # for category in COLORS:
-    #     for screen in COLORS[category]:
-    #         LEGEND.append(plt.Line2D([0], [0], color=SCREEN_TO_COLOR[str(screen)], lw=3, label=str(screen)))
+            plt.barh(index + 1, row.end, color=SCREEN_TO_COLOR[screen], height=height)
 
     plt.plot()
     plt.xlabel("Elapsed time")
     plt.ylabel("Subject")
     plt.title(f"{name.capitalize()} Screen switches")
     plt.savefig(os.path.join('data', f'{name}_tie_plot.png'))
-    # plt.legend(handles=LEGEND, loc='center', fancybox=True, shadow=True, ncol=3)
-    # plt.savefig(os.path.join('data', 'legend.png'))
     plt.clf()
 
 def travel_graph(*csvs, name):
@@ -139,14 +133,6 @@ def travel_graph(*csvs, name):
     plt.clf()
 
 
-# MAIN
-
-# csvs = ['heath_helen.csv', 'jason_helen.csv']
-
-# for index, csv in enumerate(csvs):
-#     tie_plot(csv, index)
-
-
 # file handler
 names = ['helen', 'laura', 'malia']
 all_csvs = []
@@ -161,12 +147,11 @@ for name in names:
     csvs = []
     for i in range(8):
         csvs.append(os.path.join('csvs', f'{name}_{i + 1}.csv'))
-
     tie_plot(*csvs, name=name)
+
+for name in names:
+    csvs = []
+    for i in range(8):
+        csvs.append(os.path.join('csvs', f'{name}_{i + 1}.csv'))
     travel_graph(*csvs, name=name)
 
-# for index, csv in enumerate(csvs):
-#     travel_graph(csv, index*3, ax, 'spring')
-#     travel_graph(csv, index*3 + 1, ax, 'circular')
-#     travel_graph(csv, index + 2, ax, 'planar')
-# plt.show()
