@@ -6,6 +6,7 @@ import pdb
 import os
 import random
 from colorsys import hsv_to_rgb
+from math import isnan
 
 
 LEGEND = []
@@ -19,15 +20,22 @@ def sort_screens(*csvs):
     for index, csv_name in enumerate(csvs):
         times = pd.read_csv(csv_name)
         for i, row in times.iterrows():
-            category = macros.loc[macros['ID'] == str(row.Screen), 'MACRO'].values
-            if len(category) > 0:
-                category = category[0]
+            if isnan(row.Screen):
+                continue
             else:
-                category = 'UNKNOWN CATEGORY'
-            if category not in COLORS:
-                COLORS[category] = []
-            if row.Screen not in COLORS[category]:
-                COLORS[category].append(row.Screen)
+                try:
+                    category = macros.loc[macros['ID'] == str(int(row.Screen)), 'MACRO'].values
+                except:
+                    pdb.set_trace()
+                if len(category) > 0:
+                    category = category[0]
+                else:
+                    category = 'UNKNOWN CATEGORY'
+                if category not in COLORS:
+                    COLORS[category] = []
+                if row.Screen not in COLORS[category]:
+                    COLORS[category].append(int(row.Screen))
+    
     hue_increment = 360 // (len(COLORS) + 1)
     hue = 0
     for index, category in enumerate(COLORS):
@@ -48,7 +56,7 @@ def sort_screens(*csvs):
             r, g, b = [int(x*255) for x in (r, g, b)]
             SCREEN_TO_COLOR[str(screen)] = '#%02X%02X%02X' % (r, g, b)
 
-def tie_plot(*csvs):
+def tie_plot(*csvs, name):
 
     for index, csv_name in enumerate(csvs):
         times = pd.read_csv(csv_name)
@@ -58,6 +66,8 @@ def tie_plot(*csvs):
         height = 0.3
 
         for i, row in times.iterrows():
+            if isnan(row.Screen):
+                continue
             screen = str(int(row.Screen))
             plt.barh(index, row.end, color=SCREEN_TO_COLOR[screen], height=height)
 
@@ -68,13 +78,13 @@ def tie_plot(*csvs):
     plt.plot()
     plt.xlabel("Elapsed time")
     plt.ylabel("Subject")
-    plt.title("Helen Screen switches")
-    plt.savefig(os.path.join('data', 'tie_plot.png'))
+    plt.title(f"{name.capitalize()} Screen switches")
+    plt.savefig(os.path.join('data', f'{name}_tie_plot.png'))
     # plt.legend(handles=LEGEND, loc='center', fancybox=True, shadow=True, ncol=3)
     # plt.savefig(os.path.join('data', 'legend.png'))
     plt.clf()
 
-def travel_graph(*csvs):
+def travel_graph(*csvs, name):
     fig, ax = plt.subplots(3, 3, num=1)
     fig.set_size_inches(12, 12)
     G = nx.DiGraph()
@@ -93,10 +103,13 @@ def travel_graph(*csvs):
 
         a = None
         for i, row in times.iterrows():
-            b = int(row.Screen)
-            if a:
-                edges[label].append((a, b))
-            a = b
+            if isnan(row.Screen):
+                continue
+            else:
+                b = int(row.Screen)
+                if a:
+                    edges[label].append((a, b))
+                a = b
 
     color_arr = []
     for node in G.nodes():
@@ -122,7 +135,8 @@ def travel_graph(*csvs):
     axis = ax[2][2]
     axis.axis('off')
     axis.legend(handles=graph_legend, loc='center', fancybox=True, shadow=True)
-    plt.savefig(os.path.join('data', 'circ_graphs.png'))
+    plt.savefig(os.path.join('data', f'{name}_circ_graphs.png'))
+    plt.clf()
 
 
 # MAIN
@@ -134,13 +148,22 @@ def travel_graph(*csvs):
 
 
 # file handler
-csvs = []
-for i in range(8):
-    csvs.append(os.path.join('csvs', f'helen_{i + 1}.csv'))
+names = ['helen', 'laura', 'malia']
+all_csvs = []
 
-sort_screens(*csvs)
-tie_plot(*csvs)
-travel_graph(*csvs)
+for name in names:
+    for i in range(8):
+        all_csvs.append(os.path.join('csvs', f'{name}_{i + 1}.csv'))
+
+sort_screens(*all_csvs)
+
+for name in names:
+    csvs = []
+    for i in range(8):
+        csvs.append(os.path.join('csvs', f'{name}_{i + 1}.csv'))
+
+    tie_plot(*csvs, name=name)
+    travel_graph(*csvs, name=name)
 
 # for index, csv in enumerate(csvs):
 #     travel_graph(csv, index*3, ax, 'spring')
