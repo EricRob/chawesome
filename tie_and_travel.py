@@ -78,16 +78,15 @@ def tie_plot(*csvs, name):
     plt.savefig(os.path.join('data', f'{name}_tie_plot.png'))
     plt.clf()
 
-def travel_graph(*csvs, name):
-    fig, ax = plt.subplots(3, 3, num=1)
-    fig.set_size_inches(12, 12)
+def travel_graph(*csvs, name='all', w=12, h=20, ns=50):
+    fig, ax = plt.subplots(nrows=9, ncols=4, figsize=(w,h))
+    # fig, ax = plt.subplots(3, 3, num=1)
     G = nx.DiGraph()
     edges = {}
 
     for category in COLORS:
         for screen in COLORS[category]:
             G.add_node(screen)
-
     for index, csv_name in enumerate(csvs):
         label = csv_name.split('.')[0].split('/')[-1]
         edges[label] = []
@@ -114,22 +113,36 @@ def travel_graph(*csvs, name):
     r = lambda: random.randint(0,255)
     
     for index, edge in enumerate(edges):
-        axis = ax[index // 3][index % 3]
-        axis.set_title(edge)
+        axis = ax[1 + index % 8][1 + index // 8]
+        # axis.set_title(edge)
+        axis.axis('off')
         plt.sca(axis)
         color = '#%02X%02X%02X' % (r(),r(),r())
         color = '#181818'
+        grey_color = '#808080'
+        nx.draw_networkx_nodes(G, pos, ax=axis, node_color=color_arr, node_size=ns)
+        # nx.draw_networkx_nodes(G, pos, ax=axis, node_color=grey_color, node_size=ns)
         nx.draw_networkx_edges(G, pos, ax=axis, edgelist=edges[edge], edge_color=color, arrows=True)
-        nx.draw_networkx_nodes(G, pos, ax=axis, node_color=color_arr, node_size=50)
         # nx.draw_networkx_labels(G, pos, ax=axis, )
-        plt.title(edge)
+        # plt.title(edge)
     graph_legend = []
     for category in COLORS:
         graph_legend.append(plt.Line2D([0], [0], color=SCREEN_TO_COLOR[str(COLORS[category][-1])], lw=3, label=category))
-    axis = ax[2][2]
+    axis = ax[0][0]
     axis.axis('off')
     axis.legend(handles=graph_legend, loc='center', fancybox=True, shadow=True)
-    plt.savefig(os.path.join('data', f'{name}_circ_graphs.png'))
+    
+    for x in range(8):
+        axis = ax[x + 1][0]
+        axis.axis('off')
+        axis.text(0.5, 0.5, f'Pharmacist {x + 1}')
+    for x in range(3):
+        axis = ax[0][x + 1]
+        axis.axis('off')
+        axis.text(0.5, 0.5, f'Case {x+1}')
+
+    # plt.savefig(os.path.join('data', f'{name}_circ_graphs.png'))
+    plt.savefig(os.path.join('data', f'w{w}_h{h}_ns{ns}_all_cases_circ_graphs.png'))
     plt.clf()
 
 
@@ -140,7 +153,6 @@ all_csvs = []
 for name in names:
     for i in range(8):
         all_csvs.append(os.path.join('csvs', f'{name}_{i + 1}.csv'))
-
 sort_screens(*all_csvs)
 
 for name in names:
@@ -149,9 +161,15 @@ for name in names:
         csvs.append(os.path.join('csvs', f'{name}_{i + 1}.csv'))
     tie_plot(*csvs, name=name)
 
-for name in names:
-    csvs = []
-    for i in range(8):
-        csvs.append(os.path.join('csvs', f'{name}_{i + 1}.csv'))
-    travel_graph(*csvs, name=name)
+# for name in names:
+#     csvs = []
+#     for i in range(8):
+#         csvs.append(os.path.join('csvs', f'{name}_{i + 1}.csv'))
+#     travel_graph(*csvs, name=name)
+
+# travel_graph(*all_csvs)
+# travel_graph(*all_csvs, w=15, h=30)
+travel_graph(*all_csvs, w=15, h=30, ns=40)
+travel_graph(*all_csvs, w=15, h=30, ns=30)
+travel_graph(*all_csvs, w=15, h=30, ns=20)
 
